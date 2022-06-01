@@ -55,7 +55,7 @@ namespace DevTracker.API.Controllers
         [HttpPost]
         public IActionResult Post(AddPackageInputModel model)
         {
-            if (model.Title.Length < 10)
+            if (model.Title?.Length < 10)
             {
                 return BadRequest("Title length must be at least 10 character.");
             }

@@ -2,7 +2,7 @@ namespace DevTracker.API.Entities
 {
     public class PackageUpdate
     {
-        public PackageUpdate(string status, int packageId)
+        public PackageUpdate(string? status, int packageId)
         {
             Status = status;
             PackageId = packageId;
