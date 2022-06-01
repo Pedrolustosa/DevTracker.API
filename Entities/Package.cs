@@ -2,7 +2,7 @@ namespace DevTracker.API.Entities
 {
     public class Package
     {
-        public Package(string title, decimal weight)
+        public Package(string? title, decimal weight)
         {
             Code = Guid.NewGuid().ToString();
             Title = title;
@@ -12,7 +12,7 @@ namespace DevTracker.API.Entities
             Updates = new List<PackageUpdate>();
         }
 
-        public void AddUpdate(string status, bool delivered)
+        public void AddUpdate(string? status, bool delivered)
         {
             if (Delivered)
             {
