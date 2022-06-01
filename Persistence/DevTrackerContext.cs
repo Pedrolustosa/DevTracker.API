@@ -9,8 +9,8 @@ namespace DevTracker.API.Persistence
         : base(options)
         { }
 
-        public DbSet<Package> Packages { get; set; }
-        public DbSet<PackageUpdate> PackageUpdates { get; set; }
+        public DbSet<Package>? Packages { get; set; }
+        public DbSet<PackageUpdate>? PackageUpdates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

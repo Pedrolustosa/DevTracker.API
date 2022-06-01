@@ -24,7 +24,7 @@ namespace DevTracker.API.Persistence.Repository
 
         public void Add(Package package)
         {
-            _context.Packages.Add(package);
+            _context.Packages?.Add(package);
             _context.SaveChanges();
         }
 
