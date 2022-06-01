@@ -1,7 +1,7 @@
 # PT-BR
-# DevJobs - Jornada .NET Direto ao Ponto
+# DevTracker - Jornada .NET Direto ao Ponto
 
-Foi desenvolvida uma API REST completa de gerenciamento de vagas de emprego e aplicação de vagas.
+Foi desenvolvida uma API REST completa de entrega.
 
 ## Tecnologias e práticas utilizadas
 - ASP.NET Core com .NET 6
@@ -18,17 +18,17 @@ Foi desenvolvida uma API REST completa de gerenciamento de vagas de emprego e ap
 - Publicação na nuvem com Azure App Service
 
 ## Funcionalidades
-- Cadastro, Listagem, Detalhes, Atualização de Vaga de Emprego
-- Aplicação a Vaga de Emprego
+- Cadastro, Listagem, Detalhes, Atualização da entrega
+- Aplicação de entrega
 
 Mestre: 
 YouTube Canal - https://www.youtube.com/channel/UCjfymesWHr0Z-3hryRsc-Fw
 LinkedIN - https://www.linkedin.com/in/luisdeol/
 
 # EN
-# DevJobs - .NET Journey to the Point
+# DevTracker - .NET Journey to the Point
 
-A complete REST API for job vacancy management and job application was developed.
+A complete REST API for delivery.
 
 ## Technologies and practices used
 - ASP.NET Core with .NET 6
@@ -45,8 +45,8 @@ A complete REST API for job vacancy management and job application was developed
 - Cloud publishing with Azure App Service
 
 ## Functionalities
-- Registration, Listing, Details, Job Vacancy Update
-- Application to Job Vacancy
+- Registration, Listing, Details, Delivery Update
+- Application to Delivery
 
 Master: 
 YouTube Channel - https://www.youtube.com/channel/UCjfymesWHr0Z-3hryRsc-Fw
