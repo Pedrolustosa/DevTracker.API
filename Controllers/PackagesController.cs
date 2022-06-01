@@ -2,6 +2,8 @@ using DevTracker.API.Models;
 using DevTracker.API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using DevTracker.API.Persistence.Repository;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace DevTracker.API.Controllers
 {
@@ -10,15 +12,17 @@ namespace DevTracker.API.Controllers
     public class PackagesController : ControllerBase
     {
         private readonly IPackageRepository _repository;
-        public PackagesController(IPackageRepository repository)
-        {
-            _repository = repository;
+        private readonly ISendGridClient _client;
 
+        public PackagesController(IPackageRepository repository, ISendGridClient client)
+        {
+            _client = client;
+            _repository = repository;
         }
 
         /// <summary>
-        /// Return one object(package)
         /// GET api/packages/XXXX-XXXX-XXXX-XXXX
+        /// Return one object(package)
         /// </summary>
         /// <returns></returns>
         [HttpGet("{code}")]
@@ -35,8 +39,8 @@ namespace DevTracker.API.Controllers
         }
 
         /// <summary>
-        /// Return all objects(packages)
         /// GET api/packages
+        /// Return all objects(packages)
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -50,10 +54,20 @@ namespace DevTracker.API.Controllers
         /// POST api/packages
         /// Cadaster new object(package)
         /// </summary>
-        /// <param name="package"></param>
-        /// <returns></returns>
+        /// <remarks>
+        ///  {
+        ///   "title": "Novo Pacote de Software 3",
+        ///   "weight": 10.5,
+        ///   "senderName": "Pedro 3",
+        ///   "senderEmail": "pedroeternalss@gmail.com"
+        ///  } 
+        /// </remarks>
+        /// <param name="model">Data of package</param>
+        /// <returns>New object</returns>
+        /// <response code="201">Cadaster was with successe</response>
+        /// <response code="400">Data incorrects</response>
         [HttpPost]
-        public IActionResult Post(AddPackageInputModel model)
+        public async Task<IActionResult> Post(AddPackageInputModel model)
         {
             if (model.Title?.Length < 10)
             {
@@ -63,11 +77,21 @@ namespace DevTracker.API.Controllers
             var package = new Package(model.Title, model.Weight);
             _repository.Add(package);
 
+            var message = new SendGridMessage
+            {
+                From = new EmailAddress("pedroeternalss@gmail.com", "pedroeternalss@gmail.com"),
+                Subject = "Your Package was dispatched.",
+                PlainTextContent = $"Your package with code {package.Code} was dispatched."
+            };
+            message.AddTo(model.SenderEmail, model.SenderName);
+
+            await _client.SendEmailAsync(message);
+
             return CreatedAtAction("GetByCode", new { code = package.Code }, package);
         }
 
         /// <summary>
-        /// PUT api/packages/XXXX-XXXX-XXXX-XXXX/updates
+        /// POST api/packages/XXXX-XXXX-XXXX-XXXX/updates
         /// Update a package
         /// </summary>
         /// <returns></returns>
