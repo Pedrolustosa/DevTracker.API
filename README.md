@@ -22,8 +22,8 @@ Foi desenvolvida uma API REST completa de entrega.
 - Aplicação de entrega
 
 Mestre: 
-YouTube Canal - https://www.youtube.com/channel/UCjfymesWHr0Z-3hryRsc-Fw
-LinkedIN - https://www.linkedin.com/in/luisdeol/
+* YouTube Canal - https://www.youtube.com/channel/UCjfymesWHr0Z-3hryRsc-Fw
+* LinkedIN - https://www.linkedin.com/in/luisdeol/
 
 # EN
 # DevTracker - .NET Journey to the Point
@@ -49,5 +49,5 @@ A complete REST API for delivery.
 - Application to Delivery
 
 Master: 
-YouTube Channel - https://www.youtube.com/channel/UCjfymesWHr0Z-3hryRsc-Fw
-LinkedIN - https://www.linkedin.com/in/luisdeol/
+* YouTube Channel - https://www.youtube.com/channel/UCjfymesWHr0Z-3hryRsc-Fw
+* LinkedIN - https://www.linkedin.com/in/luisdeol/
